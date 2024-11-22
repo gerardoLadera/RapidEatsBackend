@@ -1,4 +1,4 @@
-# RapiEats-Backend
+# RapiEatsBackend
 
 ## Instalación
 
