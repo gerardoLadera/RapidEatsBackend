@@ -13,6 +13,7 @@ class Combo(models.Model):
 
 
 class ComboProducto(models.Model):
+    id = models.AutoField(primary_key=True)
     id_combo = models.ForeignKey(Combo, on_delete=models.CASCADE, db_column='id_combo')
     id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE, db_column='id_producto')
     cantidad = models.IntegerField()
