@@ -35,7 +35,7 @@ class PedidoAdmin(admin.ModelAdmin):
 
 @admin.register(DetallePedido)
 class DetallePedidoAdmin(admin.ModelAdmin):
-    list_display = ('id_datallepedido', 'id_producto', 'id_pedido', 'cantidad', 'total')
+    list_display = ('id_datallepedido', 'id_producto', 'id_pedido', 'total')
     search_fields = ('id_pedido__id_pedido',)
     list_filter = ('id_pedido',)
 
