@@ -35,9 +35,17 @@ class PedidoAdmin(admin.ModelAdmin):
 
 @admin.register(DetallePedido)
 class DetallePedidoAdmin(admin.ModelAdmin):
-    list_display = ('id_datallepedido', 'id_producto', 'id_pedido', 'total')
+    list_display = ('id_datallepedido', 'get_id_producto', 'get_id_detalle_adicional', 'id_pedido', 'total')
     search_fields = ('id_pedido__id_pedido',)
     list_filter = ('id_pedido',)
+    
+    def get_id_producto(self, obj):
+        return obj.id_producto if obj.id_producto else "No asignado"
+    get_id_producto.short_description = 'Producto'
+
+    def get_id_detalle_adicional(self, obj):
+        return obj.id_detalle_adicional if obj.id_detalle_adicional else "No asignado"
+    get_id_detalle_adicional.short_description = 'Detalle adicional'
 
 
 @admin.register(Combo)

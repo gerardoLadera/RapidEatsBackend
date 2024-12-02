@@ -17,16 +17,13 @@ class Pedido(models.Model):
         managed = False
         db_table = 'pedido'
 
-
 class DetallePedido(models.Model):
     id_datallepedido = models.AutoField(primary_key=True)
-    id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE, db_column='id_producto')
+    id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE, db_column='id_producto', null=True)
     id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, db_column='id_pedido')
-    id_detalle_adicional = models.ForeignKey('Personalizacion', on_delete=models.CASCADE, db_column='id_detalle_adicional')
-    id_combo = models.ForeignKey('Combo', on_delete=models.CASCADE, db_column='id_combo')
+    id_detalle_adicional = models.ForeignKey('Personalizacion', on_delete=models.CASCADE, db_column='id_detalle_adicional', null=True)
     subtotal = models.DecimalField(max_digits=10, decimal_places=2)
     igv = models.DecimalField(max_digits=10, decimal_places=2)
-    descuento = models.DecimalField(max_digits=10, decimal_places=2)
     total = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
